@@ -13,6 +13,7 @@ class Entity extends Grid {
     this.vectorY = 0; //pixel/s
     this.momentumZ = 0; //angle/s
     this.parentGrid = parent;
+    thid.parentGrid.appendChild(this);
     this.children = new Array();
   }
 
