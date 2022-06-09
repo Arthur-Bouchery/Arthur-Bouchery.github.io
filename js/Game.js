@@ -10,7 +10,7 @@ class Game{
     this.startTime = Date.getTime();
   }
   function Render(){
-    this.gameWorld.render();
+    this.gameGrid.render();
   }
   function getTime(){
     if(started){
