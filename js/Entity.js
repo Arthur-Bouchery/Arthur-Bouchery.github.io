@@ -19,7 +19,7 @@ class Entity extends Grid {
   function drop(child){//optimiser
     for (let i = 0; i<this.children.length; i++){
       if(child===this.children[i]){
-        this.children.remove[child];
+        this.children.remove(child);
         if(this.parentGrid){
           child.setPos(this.posX,this.posY);
           this.parentGrid.add(child);
