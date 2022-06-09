@@ -2,20 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Canvas tutorial</title>
-    <script type="text/javascript">
-      function draw() {
-        var canvas = document.getElementById('tutorial');
-        if (canvas.getContext) {
-          var ctx = canvas.getContext('2d');
-        }
-      }
-    </script>
-    <style type="text/css">
-      canvas { border: 1px solid black; }
-    </style>
+    <title>prebuild warship.io</title>
+    <script type="text/javascript" src="js/Game.js"></script>
+    <script type="text/javascript" src="js/Entity.js"></script>
+    <style type="text/css" src="css/style.css"></style>
   </head>
-  <body onload="draw();">
-    <canvas id="tutorial" width="150" height="150"></canvas>
+  <body onload="start();">
+    <canvas id="tutorial" width="300" height="300"></canvas>
   </body>
 </html>
