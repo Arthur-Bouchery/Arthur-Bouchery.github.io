@@ -1,7 +1,7 @@
 class Grid{
   constructor(width, height){
-    if (this.constructor === Entity) {
-      throw new TypeError('Abstract class "Entity" cannot be instantiated directly');
+    if (this.constructor === Grid) {
+      throw new TypeError('Abstract class "Grid" cannot be instantiated directly');
     }
     this.width=width;
     this.height=height;
