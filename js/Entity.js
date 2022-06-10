@@ -17,7 +17,7 @@ class Entity extends Grid {
     this.children = new Array();
   }
 
-  function drop(child){//optimiser
+  drop(child){//optimiser
     for (let i = 0; i<this.children.length; i++){
       if(child===this.children[i]){
         this.children.remove(child);
@@ -29,11 +29,11 @@ class Entity extends Grid {
     }
   }
 
-  function appendChild(child){
+  appendChild(child){
     this.children.add(child);
   }
  
-  function render(ctx){//revoir la récursivité de cette fonction
+  render(ctx){//revoir la récursivité de cette fonction
     ctx.beginPath();
     ctx.fillStyle = 'rgb(100,90,100)';
     if(!this.parentGrid){
@@ -58,13 +58,13 @@ class Entity extends Grid {
   }
   
   //int elapsedTime in millisec
-  function refreshPos(elapsedTime) {
+  refreshPos(elapsedTime) {
     this.posX=this.posX+(elapsedTime/1000)*this.vectorX;
     this.posY=this.posY+(elapsedTime/1000)*this.vectorY;
     this.rotZ=(this.rotZ+(elapsedTime/1000)*this.momentumZ)%360;
   }
 
-  function setPos(x,y){
+  setPos(x,y){
     this.posX=x;
     this.posY=y;
     //this.rotZ=z;
