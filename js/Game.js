@@ -9,9 +9,12 @@ class Game{
   static start(){
     this.startTime = Date.getTime();
     console.log(this.startTime);
+    setInterval(33)
   }
   Render(){
-    this.gameGrid.render();
+    var canvas = document.getElementById("gameView");
+    var ctx = canvas.getcontext('2d');
+    this.gameGrid.render(ctx);
   }
   getTime(){
     if(started){

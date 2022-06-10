@@ -37,24 +37,29 @@ class Entity extends Grid {
   render(ctx){//revoir la récursivité de cette fonction
     ctx.beginPath();
     ctx.fillStyle = 'rgb(100,90,100)';
+    //rotation centrée
+    ctx.translate(this.posX+this.width/2,this.posY+this.height/2);
+    ctx.rotate(this.rotZ*Math.PI/180);
+    ctx.translate(-this.posX-this.width/2,-this.posY-this.height/2);
+    
     if(!this.parentGrid){
       ctx.rect(this.posX,this.posY,this.height,this.width);
     }else{
       ctx.rect(this.posX+this.parentGrid.posX,this.posY+this.parentGrid.posY,this.height,this.width);
     }
     
-    ctx.translate(this.width/2,this.height/2);
-    ctx.rotate(this.rotZ*Math.PI*180);
-    ctx.translate(-this.width/2,-this.height/2);
-    if(this.parentGrid && this.parentGrid.rotZ!=0){
+    
+    if(this.parentGrid && this.parentGrid===Entity){
       ctx.translate(this.parentGrid.width/2,this.parentGrid.height/2);
       ctx.rotate(this.parentGrid.rotZ*Math.PI*180);
       ctx.translate(-this.parentGrid.width/2,-this.parentGrid.height/2);
     }
     ctx.fill();
     ctx.closePath();
-    for(let i=0;i<this.children.length;i++){
-      this.children[i].render(ctx);
+    if(this.children.length>0){
+      for(let i=0;i<this.children.length;i++){
+        this.children[i].render(ctx);
+      }
     }
   }
   
