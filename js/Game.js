@@ -6,13 +6,14 @@ class Game{
     this.lastFrameTime = 0;
     this.started = false;
   }
-  function start(){
+  static start(){
     this.startTime = Date.getTime();
+    console.log(this.startTime);
   }
-  function Render(){
+  Render(){
     this.gameGrid.render();
   }
-  function getTime(){
+  getTime(){
     if(started){
       return Date.getTime()-this.startTime;
     }else{
