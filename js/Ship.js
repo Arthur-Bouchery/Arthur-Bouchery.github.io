@@ -4,7 +4,7 @@ class Ship extends Entity{//refactor ship factory
     this.name= Name;
     this.hardpoints = hardpoints;
     this.weapons = weapons; 
-    this.children.appendAll(weapons);
+    this.children= this.children.concat(weapons);
     this.shields = shields;
   }
   function render(ctx){
