@@ -1,3 +1,4 @@
+const Grid = require("./Grid");
 class Entity extends Grid {
  
   constructor(Parent, Height, Width, Mass, PosX, PosY, RotZ) {
