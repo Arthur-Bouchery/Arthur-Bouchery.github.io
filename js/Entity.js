@@ -1,4 +1,3 @@
-const Grid = require("./Grid");
 class Entity extends Grid {
  
   constructor(Parent, Height, Width, Mass, PosX, PosY, RotZ) {
@@ -7,8 +6,8 @@ class Entity extends Grid {
     }
     super(Height, Width);
     this.mass = Mass;
-    this.posX = PosX;
-    this.posY = PosY;
+    this.posX = PosX;//positions relatives à la "grille" parent
+    this.posY = PosY;//
     this.rotZ = RotZ;
     this.vectorX = 0; //pixel/s
     this.vectorY = 0; //pixel/s
@@ -35,27 +34,25 @@ class Entity extends Grid {
   }
  
   render(ctx){//revoir la récursivité de cette fonction
-    ctx.beginPath();
+    //reset ctx position if no parent
+    if(!this.parentGrid){
+      ctx.setTransform(1,0,0,1,0,0);
+      let x = this.posX; 
+      let y = this.posY;
+    }else{
+      let x = this.posX+this.parentGrid.posX; 
+      let y = this.posY+this.parentGrid.posY;
+    }
     ctx.fillStyle = 'rgb(100,90,100)';
+   
     //rotation centrée
     ctx.translate(this.posX+this.width/2,this.posY+this.height/2);
     ctx.rotate(this.rotZ*Math.PI/180);
     ctx.translate(-this.posX-this.width/2,-this.posY-this.height/2);
     
-    if(!this.parentGrid){
-      ctx.rect(this.posX,this.posY,this.height,this.width);
-    }else{
-      ctx.rect(this.posX+this.parentGrid.posX,this.posY+this.parentGrid.posY,this.height,this.width);
-    }
-    
-    
-    if(this.parentGrid && this.parentGrid===Entity){
-      ctx.translate(this.parentGrid.width/2,this.parentGrid.height/2);
-      ctx.rotate(this.parentGrid.rotZ*Math.PI*180);
-      ctx.translate(-this.parentGrid.width/2,-this.parentGrid.height/2);
-    }
-    ctx.fill();
-    ctx.closePath();
+    //dessin
+    ctx.fillRect(x,y,this.height,this.width);
+    //rendu des entitées contenues dans l'entité
     if(this.children.length>0){
       for(let i=0;i<this.children.length;i++){
         this.children[i].render(ctx);

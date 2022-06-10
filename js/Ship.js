@@ -1,4 +1,3 @@
-const Entity = require("./Entity");
 class Ship extends Entity{//refactor ship factory
   constructor(Name, hardpoints, weapons, shields, Parent, Height, Width, Mass, PosX, PosY, RotZ) {
     super(Parent, Height, Width, Mass, PosX, PosY, RotZ);
