@@ -9,6 +9,6 @@ class Ship extends Entity{//refactor ship factory
     this.shields = shields;
   }
   render(ctx){
-    super(ctx);
+    super.render(ctx);
   }
 }
