@@ -19,7 +19,7 @@ class Game{
     setInterval(this.render(),50);
   }
   addElement(e){
-    this.elements.add(e);
+    this.elements.push(e);
   }
   render(){
     var ctx = this.gameGrid.getcontext('2d');
