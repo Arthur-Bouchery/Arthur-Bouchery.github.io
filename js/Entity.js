@@ -42,7 +42,6 @@ class Entity extends Grid {
     }else{
       ctx.setTransform(1,0,0,1,0,0);
     }
-    ctx.fillStyle = 'rgb(100,90,100)';
    
     //rotation centrée
     ctx.translate(this.posX+this.width/2,this.posY+this.height/2);
@@ -50,6 +49,7 @@ class Entity extends Grid {
     ctx.translate(-this.posX-this.width/2,-this.posY-this.height/2);
     
     //dessin
+    ctx.fillStyle = 'rgb(100,90,100)';
     ctx.fillRect(x,y,this.height,this.width);
     //rendu des entitées contenues dans l'entité
     if(this.children){

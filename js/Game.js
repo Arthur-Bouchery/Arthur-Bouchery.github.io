@@ -9,6 +9,7 @@ class Game{
   static start(){
     const canvas = document.getElementById("gameView");
     var ctx = canvas.getContext('2d');
+    ctx.fillRect(50,50,100,30);
     console.log(canvas.width+" "+canvas.height);
     var instance = new Game(Grid);
     var starter = Ship.getStarter();
@@ -21,7 +22,7 @@ class Game{
       function () {
         instance.render(ctx);
       }
-      ,50
+      ,100
     );
   }
   addElement(e){
@@ -31,7 +32,6 @@ class Game{
     let frameStart = Date.now();
     let nb=0;
     for(let i = 0; i<this.elements.length; i++){
-      console.log("frameCount");
       let e = this.elements[i];
       e.refreshPos(frameStart-(this.lastFrameTime == 0 ? frameStart : this.lastFrameTime));
       e.render(ctx);
