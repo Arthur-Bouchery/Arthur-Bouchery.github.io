@@ -14,7 +14,7 @@ class Game{
     var starter = Ship.getStarter();
     instance.addElement(starter);
     instance.startTime = Date.now();
-    console.log(this.startTime);
+    console.log(instance.startTime);
     instance.started = true;
     setInterval(
       function () {
