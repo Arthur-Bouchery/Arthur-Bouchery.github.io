@@ -30,10 +30,11 @@ class Game{
     let frameStart = Date.now();
     for(let i = 0; i<this.elements.length; i++){
       let e = this.elements[i];
-      e.refreshPos(frameStart-this.lastFrameTime);
+      e.refreshPos(frameStart-(this.lastFrameTime == 0 ? frameStart : this.lastFrameTime));
       e.render(ctx);
     }
-    console.log("frameTime (ms) : "+(Date.now()-this.lastFrameTime));
+    this.lastFrameTime=Date.now()-frameStart;
+    console.log("frameTime (ms) : "+this.lastFrameTime);
   }
   getTime(){
     if(started){
