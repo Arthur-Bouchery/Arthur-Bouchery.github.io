@@ -14,6 +14,7 @@ class Game{
     var starter = Ship.getStarter();
     instance.addElement(starter);
     instance.startTime = Date.now();
+    console.log(instance);
     console.log(instance.startTime);
     instance.started = true;
     setInterval(
@@ -28,7 +29,9 @@ class Game{
   }
   render(ctx){
     let frameStart = Date.now();
+    let nb=0;
     for(let i = 0; i<this.elements.length; i++){
+      console.log("frameCount");
       let e = this.elements[i];
       e.refreshPos(frameStart-(this.lastFrameTime == 0 ? frameStart : this.lastFrameTime));
       e.render(ctx);
