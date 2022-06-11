@@ -1,10 +1,10 @@
 class Entity extends Grid {
  
   constructor(Parent, Height, Width, Mass, PosX, PosY, RotZ) {
+    super(Height, Width);
     if (this.constructor === Entity) {
       throw new TypeError('Abstract class "Entity" cannot be instantiated directly');
     }
-    super(Height, Width);
     this.mass = Mass;
     this.posX = PosX;//positions relatives à la "grille" parent
     this.posY = PosY;//
