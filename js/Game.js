@@ -10,21 +10,30 @@ class Game{
     const canvas = document.getElementById("gameView");
     var ctx = canvas.getcontext('2d');
     console.log(canvas.width+" "+canvas.height);
-    var grid = new Grid(canvas.width, canvas.height);
     var instance = new Game(Grid);
     var starter = Ship.getStarter();
     instance.addElement(starter);
-    this.startTime = Date.now();
+    instance.startTime = Date.now();
     console.log(this.startTime);
-    this.started = true;
-    setInterval(this.render(ctx),50);
+    instance.started = true;
+    setInterval(
+      function () {
+        instance.render(ctx);
+      }
+      ,50
+    );
   }
   addElement(e){
     this.elements.push(e);
   }
   render(ctx){
-    
-    this.gameGrid.render(ctx);
+    let frameStart = Date.now();
+    for(let i = 0; i<this.elements.length; i++){
+      let e = this.elements[i];
+      e.render(ctx);
+      e.refreshPos(frameStart-this.lastFrameTime);
+    }
+    console.log("frameTime (ms) : "+(Date.now()-this.lastFrameTime));
   }
   getTime(){
     if(started){
