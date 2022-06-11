@@ -8,7 +8,7 @@ class Game{
   }
   static start(){
     const canvas = document.getElementById("gameView");
-    var ctx = canvas.getcontext('2d');
+    var ctx = canvas.getContext('2d');
     console.log(canvas.width+" "+canvas.height);
     var instance = new Game(Grid);
     var starter = Ship.getStarter();
