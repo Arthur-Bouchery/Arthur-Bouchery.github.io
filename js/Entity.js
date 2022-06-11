@@ -12,10 +12,11 @@ class Entity extends Grid {
     this.vectorX = 0; //pixel/s
     this.vectorY = 0; //pixel/s
     this.momentumZ = 0; //angle/s
-    this.parentGrid = parent;
+    this.parentGrid = null;
     this.parentGrid.appendChild(this);
-    this.children = new Array();
   }
+
+  setParent
 
   drop(child){//optimiser
     for (let i = 0; i<this.children.length; i++){
@@ -23,14 +24,10 @@ class Entity extends Grid {
         this.children.remove(child);
         if(this.parentGrid){
           child.setPos(this.posX,this.posY);
-          this.parentGrid.add(child);
+          this.parentGrid.appendChild(child);
         }
       }
     }
-  }
-
-  appendChild(child){
-    this.children.add(child);
   }
  
   render(ctx){//revoir la récursivité de cette fonction

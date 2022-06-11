@@ -5,5 +5,10 @@ class Grid{
     //}
     this.width=width;
     this.height=height;
+    this.children = new Array();
+  }
+
+  appendChild(child){
+    this.children.add(child);
   }
 }
