@@ -52,9 +52,11 @@ class Entity extends Grid {
     //dessin
     ctx.fillRect(x,y,this.height,this.width);
     //rendu des entitées contenues dans l'entité
-    if(this.children.length>0){
+    if(this.children){
       for(let i=0;i<this.children.length;i++){
-        this.children[i].render(ctx);
+        if(this.children[i]!=null){
+          this.children[i].render(ctx);
+        }
       }
     }
   }
