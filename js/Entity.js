@@ -16,8 +16,8 @@ class Entity extends Grid {
   }
 
   setParent(p){
+    this.parentGrid = p;
     this.parentGrid.appendChild(p);
-    
   }
 
   drop(child){//optimiser
