@@ -8,7 +8,7 @@ class Game{
   }
   static start(){
     const canvas = document.getElementById("gameView");
-    var Grid = new Grid(canvas.width, canvas.height);
+    var grid = new Grid(canvas.width, canvas.height);
     var instance = new Game(Grid);
     var starter = Ship.getStarter();
     instance.addElement(starter);
