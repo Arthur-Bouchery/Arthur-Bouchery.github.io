@@ -34,13 +34,13 @@ class Entity extends Grid {
  
   render(ctx){//revoir la récursivité de cette fonction
     //reset ctx position if no parent
-    if(!this.parentGrid){
-      ctx.setTransform(1,0,0,1,0,0);
-      let x = this.posX; 
-      let y = this.posY;
+    let x = this.posX; 
+    let y = this.posY;
+    if(this.parentGrid){
+      x = x+this.parentGrid.posX; 
+      y = y+this.parentGrid.posY;
     }else{
-      let x = this.posX+this.parentGrid.posX; 
-      let y = this.posY+this.parentGrid.posY;
+      ctx.setTransform(1,0,0,1,0,0);
     }
     ctx.fillStyle = 'rgb(100,90,100)';
    
