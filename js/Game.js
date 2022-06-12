@@ -47,7 +47,7 @@ class Game{
         document.getElementById("frames").innerText="frames : "+nb;
         nb++;
         document.getElementById("fTime").innerText="frame time(ms) : "+instance.lastFrameTime;
-        document.getElementById("ship").innerText="ship status : \n ship: "+instance.playerShip.name+"\n position"+instance.playerShip.posX+" "+instance.playerShip.posY+" "+instance.playerShip.rotZ;
+        document.getElementById("ship").innerText="ship status : \n ship: "+instance.playerShip.name+"\n position"+instance.playerShip.posX+" "+instance.playerShip.posY+" "+instance.playerShip.rotZ+"\n vector x y"+instance.playerShip.vectorX+" "+instance.playerShip.vectorY;
       }
       ,100
     );
