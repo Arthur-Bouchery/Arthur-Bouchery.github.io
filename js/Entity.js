@@ -69,6 +69,12 @@ class Entity extends Grid {
     this.rotZ=(this.rotZ+(elapsedTime/1000)*this.momentumZ)%360;
   }
 
+  move(vX,vY,mZ){
+    this.vectorX+=vX;
+    this.vectorY+=vY;
+    this.momentumZ+=mZ;
+  }
+
   setPos(x,y){
     this.posX=x;
     this.posY=y;
