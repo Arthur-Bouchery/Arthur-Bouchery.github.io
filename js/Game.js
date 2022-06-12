@@ -13,19 +13,41 @@ class Game{
     var ctx = canvas.getContext('2d');
     //ctx.fillRect(50,50,100,30);
     console.log(canvas.width+" "+canvas.height);
+
     //création des éléments du jeu
     var instance = new Game();
     var starter = Ship.getStarter(70,70);
     instance.addElement(starter);
     instance.playerShip=starter;
+
     //mise en place des écouteurs d'évènements
-    // Add event listener on keypress
-    document.addEventListener('keypress', (event) => {
+    // Add event listener on keydown
+    document.addEventListener('keydown', (event) => {
       var name = event.key;
       var code = event.code;
-      // Alert the key name and key code on keydown
-      alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+      // Console.log the key name and key code on keydown
+      console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
+      if(name=="z"){instance.playerShip.move(0,1,0);};
+      if(name=="s"){instance.playerShip.move(0,-1,0);};
+      if(name=="q"){instance.playerShip.move(-1,0,0);};
+      if(name=="d"){instance.playerShip.move(1,0,0);};
+      if(name=="a"){instance.playerShip.move(0,0,1);};
+      if(name=="e"){instance.playerShip.move(0,0,-1);};
     }, false);
+    // Add event listener on keyup
+    document.addEventListener('keydown', (event) => {
+      var name = event.key;
+      var code = event.code;
+      // Console.log the key name and key code on keydown
+      console.log(`Key released ${name} \r\n Key code value: ${code}`);
+      if(name=="z"){instance.playerShip.move(0,-1,0);};
+      if(name=="s"){instance.playerShip.move(0,1,0);};
+      if(name=="q"){instance.playerShip.move(1,0,0);};
+      if(name=="d"){instance.playerShip.move(-1,0,0);};
+      if(name=="a"){instance.playerShip.move(0,0,-1);};
+      if(name=="e"){instance.playerShip.move(0,0,1);};
+    }, false);
+
     //démarrage du rendu
     instance.startTime = Date.now();
     console.log(instance);

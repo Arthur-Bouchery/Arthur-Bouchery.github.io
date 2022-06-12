@@ -11,6 +11,11 @@ class Ship extends Entity{//refactor ship factory
   static getStarter(x, y){
     return new Ship("Starter", null, null, null, null, 100, 30, 50000, x, y, 0);
   }
+  move(vX,vY,mZ){
+    this.vectorX+=vX;
+    this.vectorY+=vY;
+    this.momentumZ+=mZ;
+  }
   render(ctx){
     super.render(ctx);
   }
