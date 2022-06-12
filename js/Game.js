@@ -61,7 +61,7 @@ class Game{
     let nb=0;
     for(let i = 0; i<this.elements.length; i++){
       let e = this.elements[i];
-      e.refreshPos(frameStart-(this.lastFrameTime == 0 ? frameStart : this.lastFrameTime));
+      e.refreshPos(this.lastFrameTime);
       e.render(ctx);
     }
     this.lastFrameTime=Date.now()-frameStart;
