@@ -11,8 +11,8 @@ class Game{
     var ctx = canvas.getContext('2d');
     ctx.fillRect(50,50,100,30);
     console.log(canvas.width+" "+canvas.height);
-    var instance = new Game(Grid);
-    var starter = Ship.getStarter();
+    var instance = new Game();
+    var starter = Ship.getStarter(70,70);
     instance.addElement(starter);
     instance.startTime = Date.now();
     console.log(instance);

@@ -6,9 +6,9 @@ class Ship extends Entity{//refactor ship factory
     this.weapons = weapons; 
     this.children= this.children.concat(weapons);
     this.shields = shields;
-    setInterval(console.log(this.name+"coordinates : "+this.posX+" "+this.posY), 1000);
+    setInterval(console.log(this.name+"coordinates : "+this.posX+" "+this.posY), 100);
   }
-  static getStarter(Grid, x, y){
+  static getStarter(x, y){
     return new Ship("Starter", null, null, null, Grid, 100, 30, 50000, x, y, 0);
   }
   render(ctx){
