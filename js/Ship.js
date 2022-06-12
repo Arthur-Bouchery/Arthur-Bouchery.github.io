@@ -9,7 +9,7 @@ class Ship extends Entity{//refactor ship factory
     setInterval(console.log(this.name+"coordinates : "+this.posX+" "+this.posY), 100);
   }
   static getStarter(x, y){
-    return new Ship("Starter", null, null, null, Grid, 100, 30, 50000, x, y, 0);
+    return new Ship("Starter", null, null, null, null, 100, 30, 50000, x, y, 0);
   }
   render(ctx){
     super.render(ctx);

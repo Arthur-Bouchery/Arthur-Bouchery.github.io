@@ -24,7 +24,7 @@ class Game{
       }
       ,100
     );
-  }
+  } 
   addElement(e){
     this.elements.push(e);
   }
