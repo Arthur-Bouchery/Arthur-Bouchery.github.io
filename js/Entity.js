@@ -51,7 +51,7 @@ class Entity extends Grid {
     
     //dessin
     ctx.fillStyle = 'rgb(100,90,100)';
-    ctx.fillRect(x,y,this.height,this.width);
+    ctx.fillRect(x,y,this.width,this.height);
     //rendu des entitées contenues dans l'entité
     if(this.children){
       for(let i=0;i<this.children.length;i++){
