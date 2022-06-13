@@ -17,7 +17,7 @@ class Ship extends Entity{//refactor ship factory
     //angle=z*Math.PI/180; not implemented yet
     let a=this.rotZ*Math.PI/180;
     console.log(a);
-    let newVX=vX*Math.cos(a)+vY*Math.sin(a);
+    let newVX=vX*Math.cos(a)-vY*Math.sin(a);
     let newVY=vX*Math.sin(a)+vY*Math.cos(a);
     console.log(newVX+"         "+newVY+"   cos/sin: "+Math.cos(a)+" "+Math.sin(a));
     this.move(newVX,newVY,0);
