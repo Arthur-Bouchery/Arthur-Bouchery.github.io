@@ -36,12 +36,14 @@ class Game{
     }, false);
 
     //démarrage du rendu
+    let targetFrameTime = 100;
     instance.startTime = window.performance.now();
     console.log(instance);
     console.log(instance.startTime);
     instance.started = true;
     setInterval(
       function () {
+        instance.elements[i].refreshPos(targetFrameTime);
         instance.render(ctx);
         let nb=0;
         document.getElementById("frames").innerText="frames : "+nb;
@@ -49,7 +51,7 @@ class Game{
         document.getElementById("fTime").innerText="frame time(ms) : "+instance.lastFrameTime;
         document.getElementById("ship").innerText="ship status : \n ship: "+instance.playerShip.name+"\n position"+instance.playerShip.posX+" "+instance.playerShip.posY+" "+instance.playerShip.rotZ+"\n vector x y"+instance.playerShip.vectorX+" "+instance.playerShip.vectorY;
       }
-      ,100
+      ,targetFrameTime
     );
   }
    
@@ -63,12 +65,10 @@ class Game{
     let frameStart = window.performance.now();
     let nb=0;
     for(let i = 0; i<this.elements.length; i++){
-      let e = this.elements[i];
-      e.refreshPos(this.lastFrameTime);
-      e.render(ctx);
+      this.elements[i].render(ctx);
     }
     this.lastFrameTime=window.performance.now()-frameStart;
-    console.log("frameTime (ms) : "+this.lastFrameTime);
+    //console.log("frameTime (ms) : "+this.lastFrameTime);
   }
   getTime(){
     if(started){
