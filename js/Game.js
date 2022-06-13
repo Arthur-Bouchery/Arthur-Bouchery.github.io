@@ -64,7 +64,7 @@ class Game{
     let frameStart = window.performance.now();
     let nb=0;
     for(let i = 0; i<this.elements.length; i++){
-      instance.elements[i].refreshPos(t);
+      this.elements[i].refreshPos(t);
       this.elements[i].render(ctx);
     }
     this.lastFrameTime=window.performance.now()-frameStart;
