@@ -15,9 +15,9 @@ class Ship extends Entity{//refactor ship factory
   relativeThrust(vX,vY,z){
     //origin (aka x=0 y=0) will be considered to be center of shape
     //angle=z*Math.PI/180; not implemented yet
-    modAngle=this.rotZ*Math.PI/180;
-    newVX=vX*Math.cos(modAngle)+vY*Math.cos(modAngle);
-    newVY=vX*(Math.sin(modAngle)+vY*Math.sin(modAngle));
+    let modAngle=this.rotZ*Math.PI/180;
+    let newVX=vX*Math.cos(modAngle)+vY*Math.cos(modAngle);
+    let newVY=vX*(Math.sin(modAngle)+vY*Math.sin(modAngle));
     this.move(newVX,newVY,0);
   }
   move(vX,vY,mZ){
