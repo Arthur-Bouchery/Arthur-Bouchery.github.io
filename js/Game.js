@@ -36,7 +36,7 @@ class Game{
     }, false);
 
     //démarrage du rendu
-    instance.startTime = Date.now();
+    instance.startTime = window.performance.now();
     console.log(instance);
     console.log(instance.startTime);
     instance.started = true;
@@ -57,19 +57,22 @@ class Game{
     this.elements.push(e);
   }
   render(ctx){
-    let frameStart = Date.now();
+    //erase last frame
+    ctx.clearRect(0,0,300,300);
+    //render
+    let frameStart = window.performance.now();
     let nb=0;
     for(let i = 0; i<this.elements.length; i++){
       let e = this.elements[i];
       e.refreshPos(this.lastFrameTime);
       e.render(ctx);
     }
-    this.lastFrameTime=Date.now()-frameStart;
+    this.lastFrameTime=window.performance.now()-frameStart;
     console.log("frameTime (ms) : "+this.lastFrameTime);
   }
   getTime(){
     if(started){
-      let temp = Date.now()-this.startTime;
+      let temp = window.performance.now()-this.startTime;
       console.log("game Time : "+temp);
       return temp;
     }else{
