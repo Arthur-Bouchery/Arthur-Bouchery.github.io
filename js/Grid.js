@@ -1,5 +1,5 @@
 class Grid{
-  constructor(width, height){
+  constructor(height, width){
     if (this.constructor === Grid) {
       throw new TypeError('Abstract class "Grid" cannot be instantiated directly');
     }

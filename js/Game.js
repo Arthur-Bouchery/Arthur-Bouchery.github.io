@@ -27,10 +27,10 @@ class Game{
       var code = event.code;
       // Console.log the key name and key code on keydown
       console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
-      if(name=="z"){instance.playerShip.move(0,-1,0);};
-      if(name=="s"){instance.playerShip.move(0,1,0);};
-      if(name=="q"){instance.playerShip.move(-1,0,0);};
-      if(name=="d"){instance.playerShip.move(1,0,0);};
+      if(name=="z"){instance.playerShip.relativeThrust(0,-1,0);};
+      if(name=="s"){instance.playerShip.relativeThrust(0,1,0);};
+      if(name=="q"){instance.playerShip.relativeThrust(-1,0,0);};
+      if(name=="d"){instance.playerShip.relativeThrust(1,0,0);};
       if(name=="a"){instance.playerShip.move(0,0,-1);};
       if(name=="e"){instance.playerShip.move(0,0,1);};
     }, false);
