@@ -43,8 +43,7 @@ class Game{
     instance.started = true;
     setInterval(
       function () {
-        instance.elements[i].refreshPos(targetFrameTime);
-        instance.render(ctx);
+        instance.render(ctx, targetFrameTime);
         let nb=0;
         document.getElementById("frames").innerText="frames : "+nb;
         nb++;
@@ -58,13 +57,14 @@ class Game{
   addElement(e){
     this.elements.push(e);
   }
-  render(ctx){
+  render(ctx, t){
     //erase last frame
     ctx.clearRect(0,0,300,300);
     //render
     let frameStart = window.performance.now();
     let nb=0;
     for(let i = 0; i<this.elements.length; i++){
+      instance.elements[i].refreshPos(t);
       this.elements[i].render(ctx);
     }
     this.lastFrameTime=window.performance.now()-frameStart;
