@@ -21,6 +21,18 @@ class Entity extends Grid {
     this.parentGrid.appendChild(p);
   }
 
+  getMass(){
+    if(this.children!=null){
+      let temp = 0;
+      for (let i = 0; i<this.children.length; i++){
+        temp+=this.children[i].mass;
+      }
+      return this.mass+temp;
+    }else{
+      return this.mass;
+    }
+  }
+
   drop(child){//optimiser
     for (let i = 0; i<this.children.length; i++){
       if(child===this.children[i]){

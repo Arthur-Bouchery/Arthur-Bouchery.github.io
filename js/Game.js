@@ -6,6 +6,7 @@ class Game{
     this.started = false;
     this.playerShip=null;
     this.elements = new Array();
+    this.inputs = new Set();
   }
   static start(){
     //récupération du canvas
@@ -27,13 +28,83 @@ class Game{
       var code = event.code;
       // Console.log the key name and key code on keydown
       console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
-      if(name=="z"){instance.playerShip.relativeThrust(0,-1,0);};
-      if(name=="s"){instance.playerShip.relativeThrust(0,1,0);};
-      if(name=="q"){instance.playerShip.relativeThrust(-1,0,0);};
-      if(name=="d"){instance.playerShip.relativeThrust(1,0,0);};
-      if(name=="a"){instance.playerShip.move(0,0,-1);};
-      if(name=="e"){instance.playerShip.move(0,0,1);};
+      this.inputs.add(code);
+      for(let i = 0; i<this.inputs.length; i++){
+        switch (this.inputs[i]) {
+          case "Numpad1":
+            if(this.playerShip.children[1] && this.playerShip.children[1] === Thruster) this.playerShip.children[1].active = true;
+            break;
+          case "Numpad2":
+            if(this.playerShip.children[2] && this.playerShip.children[2] === Thruster) this.playerShip.children[2].active = true;
+            break;
+          case "Numpad3":
+            if(this.playerShip.children[3] && this.playerShip.children[3] === Thruster) this.playerShip.children[3].active = true;
+            break;
+          case "Numpad4":
+            if(this.playerShip.children[4] && this.playerShip.children[4] === Thruster) this.playerShip.children[4].active = true;
+            break;
+          case "Numpad5":
+            if(this.playerShip.children[5] && this.playerShip.children[5] === Thruster) this.playerShip.children[5].active = true;
+            break;
+          case "Numpad6":
+            if(this.playerShip.children[6] && this.playerShip.children[6] === Thruster) this.playerShip.children[6].active = true;
+            break;
+          case "Numpad7":
+            if(this.playerShip.children[7] && this.playerShip.children[7] === Thruster) this.playerShip.children[7].active = true;
+          break;
+          case "Numpad8":
+            if(this.playerShip.children[8] && this.playerShip.children[8] === Thruster) this.playerShip.children[8].active = true;
+          break;
+          case "Numpad9":
+            if(this.playerShip.children[9] && this.playerShip.children[9] === Thruster) this.playerShip.children[9].active = true;
+            break;
+          default:
+            break;
+        }
+      }
+
     }, false);
+    document.addEventListener('keyup', (event) => {
+      var name = event.key;
+      var code = event.code;
+      // Console.log the key name and key code on keydown
+      console.log(`Key released ${name} \r\n Key code value: ${code}`);
+      this.inputs.splice(this.inputs.indexOf(code));
+      for(let i = 0; i<this.inputs.length; i++){
+        switch (this.inputs[i]) {
+          case "Numpad1":
+            if(this.playerShip.children[1] && this.playerShip.children[1] === Thruster) this.playerShip.children[1].active = false;
+            break;
+          case "Numpad2":
+            if(this.playerShip.children[2] && this.playerShip.children[2] === Thruster) this.playerShip.children[2].active = false;
+            break;
+          case "Numpad3":
+            if(this.playerShip.children[3] && this.playerShip.children[3] === Thruster) this.playerShip.children[3].active = false;
+            break;
+          case "Numpad4":
+            if(this.playerShip.children[4] && this.playerShip.children[4] === Thruster) this.playerShip.children[4].active = false;
+            break;
+          case "Numpad5":
+            if(this.playerShip.children[5] && this.playerShip.children[5] === Thruster) this.playerShip.children[5].active = false;
+            break;
+          case "Numpad6":
+            if(this.playerShip.children[6] && this.playerShip.children[6] === Thruster) this.playerShip.children[6].active = false;
+            break;
+          case "Numpad7":
+            if(this.playerShip.children[7] && this.playerShip.children[7] === Thruster) this.playerShip.children[7].active = false;
+          break;
+          case "Numpad8":
+            if(this.playerShip.children[8] && this.playerShip.children[8] === Thruster) this.playerShip.children[8].active = false;
+          break;
+          case "Numpad9":
+            if(this.playerShip.children[9] && this.playerShip.children[9] === Thruster) this.playerShip.children[9].active = false;
+            break;
+          default:
+            break;
+        }
+      }
+    }, false);
+
 
     //démarrage du rendu
     let targetFrameTime = 17;
@@ -59,7 +130,6 @@ class Game{
   }
   render(ctx, t){
     //erase last frame
-    ctx.setTransform(1,0,0,1,0,0);
     ctx.clearRect(-60000,-60000,60000,60000);
     //render
     let frameStart = window.performance.now();
