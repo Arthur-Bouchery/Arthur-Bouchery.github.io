@@ -10,7 +10,7 @@ class Grid{
 
   setParent(p){
     this.parentGrid = p;
-    this.parentGrid.appendChild(p);
+    this.parentGrid.appendChild(this);
   }
   
   appendChild(child){
