@@ -8,6 +8,11 @@ class Grid{
     this.children = new Array();
   }
 
+  setParent(p){
+    this.parentGrid = p;
+    this.parentGrid.appendChild(p);
+  }
+  
   appendChild(child){
     this.children.push(child);
   }

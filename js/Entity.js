@@ -16,11 +16,6 @@ class Entity extends Grid {
     if(Parent!=null){this.setParent(Parent)};
   }
 
-  setParent(p){
-    this.parentGrid = p;
-    this.parentGrid.appendChild(p);
-  }
-
   getMass(){
     if(this.children!=null){
       let temp = 0;
@@ -79,6 +74,10 @@ class Entity extends Grid {
     this.posX=this.posX+(elapsedTime/1000)*this.vectorX;
     this.posY=this.posY+(elapsedTime/1000)*this.vectorY;
     this.rotZ=(this.rotZ+(elapsedTime/1000)*this.momentumZ)%360;
+
+    this.momentumZ > 1 ? this.momentumZ-- : this.momentumZ < -1 ? this.momentumZ++ : 0;
+    this.posX > 1 ? this.posX-- : this.posX < -1 ? this.posX++ : 0;
+    this.posY > 1 ? this.posY-- : this.posY < -1 ? this.posY++ : 0;
   }
 
   setPos(x,y){
