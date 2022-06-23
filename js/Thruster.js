@@ -1,4 +1,4 @@
-    class Thruster extends Entity {
+class Thruster extends Entity {
     constructor(parent, size, posX, posY, rotZ){
         mass=size*100;
         width=2+2*size;
