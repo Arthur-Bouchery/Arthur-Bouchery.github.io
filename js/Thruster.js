@@ -1,8 +1,8 @@
 class Thruster extends Entity {
     constructor(parent, size, posX, posY, rotZ){
-        mass=size*100;
-        width=2+2*size;
-        height=4+2*size;
+        let mass=size*100;
+        let width=2+2*size;
+        let height=4+2*size;
         super(parent, height, width, mass, posX, posY, rotZ);
         this.thrust=1000*size; //i need to redo the whole physics handling
         this.active=false;
