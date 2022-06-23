@@ -59,7 +59,7 @@ class Game{
   }
   render(ctx, t){
     //erase last frame
-    ctx.clearRect(0,0,300,300);
+    ctx.clearRect(-600,-600,600,600);
     //render
     let frameStart = window.performance.now();
     let nb=0;
