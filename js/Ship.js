@@ -2,7 +2,6 @@ class Ship extends Entity{//refactor ship factory
   constructor(Name, Parent, Height, Width, Mass, PosX, PosY, RotZ) {
     super(Parent, Height, Width, Mass, PosX, PosY, RotZ);
     this.name= Name;
-    this.shields = shields;
     setInterval(console.log(this.name+"coordinates : "+this.posX+" "+this.posY), 100);
   }
   static getStarter(x, y){
